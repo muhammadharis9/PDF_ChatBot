@@ -19,7 +19,7 @@ def splitting(load):
 
     return splitted_text
 
-def embeds(load):
+def embeds(splitted_text):
     embedding_model = "sentence-transformers/all-MiniLM-L6-v2"
     embed = HuggingFaceEmbeddings(model=embedding_model)
     
