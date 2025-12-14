@@ -7,7 +7,6 @@ def retrieval():
     temperature=1, 
     max_tokens=None,
     timeout=None,
-    google_api_key = "AIzaSyB1Gm74LHNB9kT2tnI4xyay1Pc1iqB_lk4",
     max_retries=2)
 
     ret = final_embed.as_retriever(search_kwargs = {"k" : 2})
@@ -51,4 +50,3 @@ def retrieval():
     print("Answer:")
     print(response['result'])
     
-
