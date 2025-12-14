@@ -3,6 +3,7 @@ mkdir -p research
 
 touch src/__init__.py
 touch src/helper.py
+touch src/pipeline.py
 touch .env
 touch .gitignore
 touch setup.py
