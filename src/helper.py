@@ -7,27 +7,25 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 def load_pdf(file_path):
     loader = PyPDFLoader(file_path=file_path)
     load = loader.load()
-
     return load
 
 def splitting(load):
     text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size = 100,
-    chunk_overlap= 20)
+        chunk_size = 800,
+        chunk_overlap= 100)
 
     splitted_text = text_splitter.split_documents(load)
-
     return splitted_text
 
 def embeds(splitted_text):
     embedding_model = "sentence-transformers/all-MiniLM-L6-v2"
     embed = HuggingFaceEmbeddings(model=embedding_model)
-    
+    PERSIST_DIR = "./chroma_db"
     final_embed = Chroma.from_documents(
-    documents=splitted_text,
-    embedding=embed,
-    collection_name="pdfs",
-    persist_directory="E:/PDF_ChatBot/chroma_langchain_db")
+        documents=splitted_text,
+        embedding=embed,
+        collection_name="pdfs",
+        persist_directory=PERSIST_DIR)
     
     return final_embed
     
@@ -39,10 +37,11 @@ def custom_embeds(load):
     embed = HuggingFaceEmbeddings(model=embedding_model)
     
     final_embed = Chroma.from_documents(
-    documents=splitted_text,
-    embedding=embed,
-    collection_name="pdfs",
-    persist_directory="E:/PDF_ChatBot/chroma_langchain_db")
+        documents=splitted_text,
+        embedding=embed,
+        collection_name="pdfs",
+        persist_directory=PERSIST_DIR
+        )
 
     return final_embed
 
