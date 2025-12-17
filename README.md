@@ -1,4 +1,4 @@
-# DocuMind AI — Chat with PDFs using RAG
+# DocuMind AI: Chat with PDFs using RAG
 
 DocuMind AI is a **PDF Question-Answering / Summarization** chatbot built with a **Retrieval-Augmented Generation (RAG)** pipeline.  
 You upload a PDF, the app chunks + embeds it into a **ChromaDB** vector store, and then you can ask questions (or request a summary) powered by **LangChain + Google Gemini**.
